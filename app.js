@@ -8,9 +8,9 @@ app.use(express.json());
 
 
 app.get("/api/:date", (req, res) => {
-  req.time = Date.now().toString();
-  req.timeNow = new Date().toString();
-  res.json({unix: req.time, utc: req.timeNow})
+  req.params.unix = Date.now().toString();
+  req.params.utc = new Date().toString();
+  res.json({unix: req.params.unix, utc: req.params.utc})
 })
 
 app.listen(port, () => {
